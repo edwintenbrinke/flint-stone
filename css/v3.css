@@ -1,0 +1,502 @@
+/* V3 — Retro comic Flintstones */
+
+:root {
+  --sky: #87ceeb;
+  --sky-dark: #5ba8d4;
+  --yellow: #ffd700;
+  --yellow-dark: #e6c200;
+  --terracotta: #c45a2a;
+  --terracotta-dark: #a04520;
+  --wood: #6b4226;
+  --wood-light: #8b5a3c;
+  --black: #1a1a1a;
+  --white: #fffef5;
+  --cream: #fff8e7;
+  --radius: 0.75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--black);
+  background-color: var(--sky);
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 12px 12px;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+h1,
+h2,
+h3,
+.section-title,
+.site-nav a,
+.btn,
+.sticky-call,
+.phone-link {
+  font-family: "Luckiest Guy", "Nunito", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--terracotta-dark);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--terracotta);
+}
+
+/* Header */
+
+.site-header {
+  background: var(--terracotta);
+  color: var(--white);
+  padding: 1.25rem 1.25rem 1rem;
+  text-align: center;
+  border-bottom: 4px solid var(--black);
+  position: relative;
+}
+
+.site-header::after {
+  display: none;
+}
+
+.site-header .logo {
+  margin: 0 auto 0.75rem;
+  max-width: 260px;
+  filter: drop-shadow(3px 3px 0 var(--black));
+}
+
+.site-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  text-shadow: 2px 2px 0 var(--black);
+  background: var(--wood);
+  display: inline-block;
+  padding: 0.3rem 1.25rem;
+  border-radius: var(--radius);
+  border: 3px solid var(--black);
+  box-shadow: 4px 4px 0 var(--black);
+}
+
+.site-header .tagline {
+  margin: 0.75rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.site-header .phone-link {
+  display: inline-block;
+  color: var(--black);
+  font-size: 1.3rem;
+  text-decoration: none;
+  background: var(--yellow);
+  padding: 0.45rem 1.5rem;
+  border-radius: 2rem;
+  border: 3px solid var(--black);
+  box-shadow: 4px 4px 0 var(--black);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.site-header .phone-link:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--black);
+  color: var(--black);
+}
+
+/* Navigation */
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--black);
+  text-decoration: none;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  background: var(--yellow);
+  border: 3px solid var(--black);
+  border-radius: 2rem;
+  box-shadow: 3px 3px 0 var(--black);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  background: var(--white);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--black);
+  color: var(--black);
+}
+
+/* Main */
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 1rem;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 3px solid var(--black);
+  box-shadow: 5px 5px 0 var(--black);
+  position: relative;
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 12px solid transparent;
+  border-top-color: var(--black);
+}
+
+.intro p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Section headings — wooden plank */
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.3rem, 4vw, 1.75rem);
+  color: var(--white);
+  margin: 0 0 1.5rem;
+  background: var(--wood);
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius);
+  border: 3px solid var(--black);
+  box-shadow: 4px 4px 0 var(--black);
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-title::after {
+  display: none;
+}
+
+section[aria-labelledby] {
+  text-align: center;
+}
+
+/* Menu grid — comic panels */
+
+.menu-grid {
+  display: grid;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.menu-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  border: 3px solid var(--black);
+  box-shadow: 5px 5px 0 var(--black);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.menu-item:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--black);
+}
+
+.menu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.menu-item h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--black);
+}
+
+.menu-item .price {
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 1.1rem;
+  color: var(--black);
+  white-space: nowrap;
+  background: var(--yellow);
+  padding: 0.2rem 0.7rem;
+  border-radius: 1rem;
+  border: 2px solid var(--black);
+}
+
+.menu-item p {
+  margin: 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.menu-item.extras h3 {
+  font-size: 1.05rem;
+}
+
+.menu-item-photo {
+  border-radius: var(--radius);
+  border: 2px solid var(--black);
+  box-shadow: 2px 2px 0 var(--black);
+  margin-bottom: 0;
+}
+
+/* Info page */
+
+.info-block {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  border: 3px solid var(--black);
+  box-shadow: 5px 5px 0 var(--black);
+  text-align: left;
+}
+
+.info-block h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+  color: var(--black);
+  background: var(--yellow);
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  border: 2px solid var(--black);
+  border-radius: 0.5rem;
+}
+
+.info-block ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.info-block li {
+  margin-bottom: 0.4rem;
+}
+
+.info-block p {
+  margin: 0 0 0.75rem;
+}
+
+.info-block p:last-child {
+  margin-bottom: 0;
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  border: 2px solid var(--black);
+}
+
+.hours-table th,
+.hours-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 2px solid var(--black);
+}
+
+.hours-table th {
+  background: var(--yellow);
+  font-family: "Luckiest Guy", sans-serif;
+}
+
+.hours-table tr:last-child td {
+  border-bottom: none;
+}
+
+.hours-note {
+  font-size: 0.85rem;
+  color: var(--wood);
+  font-style: italic;
+  margin-top: 0.75rem;
+}
+
+.contact-card {
+  text-align: center;
+  background: var(--terracotta);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.contact-card h2 {
+  color: var(--black);
+  background: var(--yellow);
+}
+
+.contact-card a {
+  color: var(--yellow);
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 1.6rem;
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--black);
+}
+
+.contact-card a:hover {
+  color: var(--white);
+}
+
+.contact-card address {
+  font-style: normal;
+  margin-top: 0.75rem;
+  line-height: 1.8;
+}
+
+/* CTA */
+
+.cta-banner {
+  text-align: center;
+  margin: 2rem 0 1rem;
+  padding: 1.5rem;
+  background: var(--yellow);
+  color: var(--black);
+  border-radius: var(--radius);
+  border: 3px solid var(--black);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.cta-banner p {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.cta-banner .btn {
+  display: inline-block;
+  background: var(--terracotta);
+  color: var(--white);
+  padding: 0.7rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border: 3px solid var(--black);
+  box-shadow: 4px 4px 0 var(--black);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.cta-banner .btn:hover {
+  transform: translate(2px, 2px) scale(1.02);
+  box-shadow: 2px 2px 0 var(--black);
+  color: var(--white);
+}
+
+/* Footer */
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  color: var(--wood);
+  font-size: 0.9rem;
+  border-top: 3px solid var(--black);
+  margin-top: 2rem;
+  background: var(--cream);
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+}
+
+/* Sticky call */
+
+.sticky-call {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  background: var(--black);
+  border-top: 3px solid var(--yellow);
+}
+
+.sticky-call a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  background: var(--yellow);
+  color: var(--black);
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  border: 3px solid var(--black);
+  box-shadow: 3px 3px 0 var(--white);
+  transition: transform 0.15s;
+}
+
+.sticky-call a:hover {
+  transform: scale(1.03);
+  color: var(--black);
+}
+
+.sticky-call svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+@media (min-width: 640px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  body {
+    padding-bottom: 0;
+  }
+
+  .sticky-call {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .menu-grid--mains {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

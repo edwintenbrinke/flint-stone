@@ -1,0 +1,58 @@
+.version-switcher {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  background: #2a2a2a;
+  border-bottom: 1px solid #444;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 639px) {
+  .version-switcher__label {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .version-switcher a,
+  .version-switcher .menu-images-toggle {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.55rem;
+  }
+}
+
+.version-switcher__label {
+  color: #999;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+
+.version-switcher a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 0.3rem 0.75rem;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.version-switcher a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.version-switcher a[aria-current="page"] {
+  color: #fff;
+  background: #555;
+  border-color: #777;
+  font-weight: 600;
+}

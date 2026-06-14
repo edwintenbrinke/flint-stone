@@ -9,7 +9,7 @@ cd flint-stone
 python3 -m http.server 8080
 ```
 
-Open [http://localhost:8080](http://localhost:8080) in je browser.
+Open [http://localhost:8080/v1/](http://localhost:8080/v1/) in je browser. De root (`/`) redirect automatisch naar v1.
 
 Alternatief met Node:
 
@@ -17,15 +17,48 @@ Alternatief met Node:
 npx serve .
 ```
 
+## Designversies
+
+Drie designvarianten om te vergelijken, wisselbaar via de balk bovenaan elke pagina:
+
+| Versie | URL | Stijl |
+|--------|-----|-------|
+| V1 Klassiek | `/v1/` | Flintstones-warm (oranje, cream) |
+| V2 Modern | `/v2/` | Donker grill-bistro (geen indexering) |
+| V3 Retro | `/v3/` | Comic/cartoon Flintstones (geen indexering) |
+| V4 Fast Food | `/v4/` | McDonald's-geïnspireerd: rood & geel (geen indexering) |
+| V5 Peri-Peri | `/v5/` | Nando's-geïnspireerd: zwart & rood (geen indexering) |
+| V6 Fresh | `/v6/` | Chipotle-geïnspireerd: wit, bruin & groen (geen indexering) |
+
+Oude URL's (`/` en `/informatie/`) redirecten naar v1.
+
 ## Structuur
 
 ```
-index.html           → Menu (homepage)
-informatie/index.html → Bezorging, openingstijden, contact
-css/style.css        → Styling
-assets/logo.png      → Logo
-robots.txt           → Zoekmachine-regels
-sitemap.xml          → Sitemap voor Google
+index.html              → Redirect naar /v1/
+informatie/index.html   → Redirect naar /v1/informatie/
+v1/index.html           → Menu (productie-design)
+v1/informatie/index.html
+v2/index.html           → Menu (modern dark)
+v2/informatie/index.html
+v3/index.html           → Menu (retro comic)
+v3/informatie/index.html
+v4/index.html           → Menu (fast food)
+v4/informatie/index.html
+v5/index.html           → Menu (peri-peri)
+v5/informatie/index.html
+v6/index.html           → Menu (fresh bowl)
+v6/informatie/index.html
+css/style.css           → V1 styling
+css/v2.css              → V2 styling
+css/v3.css              → V3 styling
+css/v4.css              → V4 styling
+css/v5.css              → V5 styling
+css/v6.css              → V6 styling
+css/version-switcher.css → Design-switcher balk
+assets/logo.png         → Logo
+robots.txt              → Zoekmachine-regels
+sitemap.xml             → Sitemap voor Google (alleen v1)
 ```
 
 ## Hosting-opties
@@ -86,7 +119,7 @@ Vergelijkbaar met Cloudflare Pages. GitHub Pages is het eenvoudigst maar vereist
 
 - [ ] Eigendom verifiëren (eigenaar-account of toegang vragen)
 - [ ] Nieuwe sitemap indienen: `https://www.flint-stone.nl/sitemap.xml`
-- [ ] URL Inspection → "Request indexing" voor `/` en `/informatie/`
+- [ ] URL Inspection → "Request indexing" voor `/v1/` en `/v1/informatie/`
 
 ### Google Business Profile
 
@@ -100,7 +133,7 @@ Vergelijkbaar met Cloudflare Pages. GitHub Pages is het eenvoudigst maar vereist
 
 ### Wat we behouden voor SEO
 
-- Zelfde URL's: `/` en `/informatie/`
+- Productie-URL's: `/v1/` en `/v1/informatie/` (met redirect vanaf `/` en `/informatie/`)
 - Zelfde paginatitels als de huidige site
 - Canonical URLs, meta descriptions, Open Graph tags
 - JSON-LD Restaurant schema
